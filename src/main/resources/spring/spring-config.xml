@@ -8,10 +8,11 @@
     <context:component-scan base-package="ilovezc" >
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
     </context:component-scan>
     <context:property-placeholder location="classpath:config/jdbc.properties"/>
 
-<!--    配置数据源 -->
+    <!-- 配置数据源 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="driverClass" value="${jdbc.driver}"/>
@@ -32,5 +33,4 @@
             <!-- 指定dao接口的包-->
             <property name="basePackage" value="atcrowdfunding.*.mapper"/>
         </bean>
-<!--    <mybatis-spring:scan base-package="atcrowdfunding.manager.mapper"/>-->
 </beans>
